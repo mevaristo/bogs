@@ -1,0 +1,10 @@
+
+services:
+  pg_db:
+    image: postgis/postgis:14-3.3
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pg_pass
+      POSTGRES_USER: bogs
+    ports:
+      - 5432:5432

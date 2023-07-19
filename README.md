@@ -1,3 +1,3 @@
-# Bogs - Bog Observation GIS System
+# BOGS - Bog Observation GIS System
 ## A cryptozoology and geotechnology project
 
