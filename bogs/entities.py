@@ -1,26 +1,14 @@
 from typing import List
 from typing import Tuple
 from datetime import date
-from sqlalchemy import create_engine
 from sqlalchemy import String
 from sqlalchemy import Date
 from sqlalchemy import ForeignKey
-from sqlalchemy import Column
 from geoalchemy2 import Geometry
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
-
-DBAPI = 'psycopg2'
-USER = 'bogs'
-PASSWORD = 'pg_pass'
-HOST = '127.0.0.1'
-PORT = '5432'
-DB = 'bogs_db'
-CONNECTION_URL = f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}'
-
-engine = create_engine(CONNECTION_URL, echo=True)
 
 
 class Base(DeclarativeBase):
@@ -74,7 +62,4 @@ class Sighting(Base):
     )
     description: Mapped[str] = mapped_column(String)
     date: Mapped[date] = mapped_column(Date)
-    location: Mapped[Tuple[float, float]] = Column(Geometry('POINT'))
-
-
-Base.metadata.create_all(engine)
+    location: Mapped[Tuple[float, float]] = mapped_column(Geometry('POINT'))
