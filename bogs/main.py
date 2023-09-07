@@ -1,4 +1,11 @@
 import entities
+from typing import Union
+from fastapi import FastAPI
 
-if __name__ == '__main__':
-    print(entities.Base.metadata)
+app = FastAPI()
+
+
+@app.get("/")
+async def get_root():
+    return {"message": "server_up"}
+
