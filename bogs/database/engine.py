@@ -1,4 +1,4 @@
-from .entities import Base
+from .entities import mapper_registry
 from sqlalchemy import create_engine
 
 DBAPI = 'psycopg2'
@@ -10,4 +10,4 @@ DB = 'bogs_db'
 CONNECTION_URL = f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB}'
 
 database_engine = create_engine(CONNECTION_URL, echo=True)
-Base.metadata.create_all(database_engine)
+mapper_registry.metadata.create_all(database_engine)
