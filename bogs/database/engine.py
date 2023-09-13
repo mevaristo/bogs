@@ -1,4 +1,4 @@
-from entities import Base
+from .entities import Base
 from sqlalchemy import create_engine
 
 DBAPI = 'psycopg2'
